@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BOUVTT_HFT_2023241.Repository;
+using System;
+using System.Linq;
+using System.Threading.Channels;
 
 namespace BOUVTT_HFT_2023241.Client
 {
@@ -6,7 +9,8 @@ namespace BOUVTT_HFT_2023241.Client
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            GameDbContext ctx = new GameDbContext();
+            ctx.Games.ToList().ForEach(game => Console.WriteLine(game.GameName));
         }
     }
 }
