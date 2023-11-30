@@ -27,7 +27,7 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
         {
             if(item.Position == null || item.Position== string.Empty)
             {
-                throw new ArgumentException("Position is required!");
+                throw new ArgumentException("Coach position is required!");
             }
             rep.Create(item);
         }
