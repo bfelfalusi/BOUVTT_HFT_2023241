@@ -39,12 +39,7 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
 
         public Player Read(int id)
         {
-            var player = rep.Read(id);
-            if (player == null)
-            {
-                throw new ArgumentException("Player does not exist!");
-            }
-            return player;
+            return rep.Read(id) ?? throw new ArgumentException("Player does not exist!");
         }
 
         public IQueryable<Player> ReadAll()
