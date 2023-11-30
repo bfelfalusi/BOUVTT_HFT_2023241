@@ -54,11 +54,17 @@ namespace BOUVTT_HFT_2023241.Repository
             modelBuilder.Entity<Coach>()
                 .HasMany(c => c.Players)
                 .WithMany(p => p.Coaches)
-                .UsingEntity<Training>(
-                    x => x.HasOne(x => x.Player)
-                        .WithMany().HasForeignKey(x => x.PlayerId).OnDelete(DeleteBehavior.Cascade),
-                    x => x.HasOne(x => x.Coach)
-                        .WithMany().HasForeignKey(x => x.CoachId).OnDelete(DeleteBehavior.Cascade));
+                .UsingEntity<Training>
+                (
+                    tr => tr.HasOne(tr => tr.Player)
+                        .WithMany()
+                        .HasForeignKey(tr => tr.PlayerId)
+                        .OnDelete(DeleteBehavior.Cascade),
+                    tr => tr.HasOne(tr => tr.Coach)
+                        .WithMany()
+                        .HasForeignKey(tr => tr.CoachId)
+                        .OnDelete(DeleteBehavior.Cascade)
+                );
 
             modelBuilder.Entity<Player>().HasData(new Player[]
             {
@@ -146,7 +152,8 @@ namespace BOUVTT_HFT_2023241.Repository
                 new Training("21*Forward Training*2023.11.15*21*7"),
                 new Training("22*Positional Training*2023.11.19*22*5"),
                 new Training("23*Defense Training*2023.11.04*23*1"),
-                new Training("24*Free Throw Training*2023.11.09*24*2")
+                new Training("24*Free Throw Training*2023.11.09*24*2"),
+                new Training("25*Free Throw Training*2023.11.08*21*2")
             });
         }
     }
