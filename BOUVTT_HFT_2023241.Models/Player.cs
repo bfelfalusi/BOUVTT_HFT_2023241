@@ -23,10 +23,11 @@ namespace BOUVTT_HFT_2023241.Models
         public int JerseyNumber { get; set; }
 
         public int TeamId { get; set; }
-
+        [NotMapped]
         public virtual Team Team { get; set; }
-
+        [NotMapped]
         public virtual ICollection<Training> Trainings { get; set; }
+        [NotMapped]
         public virtual ICollection<Coach> Coaches { get; set; }
 
         public Player()

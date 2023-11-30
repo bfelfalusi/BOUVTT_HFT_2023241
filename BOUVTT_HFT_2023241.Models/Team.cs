@@ -18,6 +18,7 @@ namespace BOUVTT_HFT_2023241.Models
         [StringLength(50)]
         public string TeamName { get; set; }
 
+        [NotMapped]
         public virtual ICollection<Player> Players { get; set; }
 
         public Team()

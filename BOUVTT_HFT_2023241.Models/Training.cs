@@ -19,8 +19,9 @@ namespace BOUVTT_HFT_2023241.Models
 
         public int CoachId { get; set; }
         public int PlayerId { get; set; }
-
+        [NotMapped]
         public virtual Player Player { get; set; }
+        [NotMapped]
         public virtual Coach Coach { get; set; }
 
         public Training()

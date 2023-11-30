@@ -9,8 +9,7 @@ namespace BOUVTT_HFT_2023241.Client
     {
         static void Main(string[] args)
         {
-            GameDbContext ctx = new GameDbContext();
-            ctx.Games.ToList().ForEach(game => Console.WriteLine(game.GameName));
+            
         }
     }
 }
