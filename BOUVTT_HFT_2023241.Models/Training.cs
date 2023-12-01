@@ -15,6 +15,8 @@ namespace BOUVTT_HFT_2023241.Models
         public int TrainingId { get; set; }
 
         public DateTime Time { get; set; }
+        [StringLength(50)]
+        [Required]
         public string TrainingType { get; set; }
 
         public int CoachId { get; set; }

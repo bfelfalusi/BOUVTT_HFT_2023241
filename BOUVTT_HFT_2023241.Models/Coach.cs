@@ -17,6 +17,7 @@ namespace BOUVTT_HFT_2023241.Models
         public int CoachId { get; set; }
 
         [StringLength(50)]
+        [Required]
         public string Position { get; set; }
 
         [NotMapped]

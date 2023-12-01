@@ -12,6 +12,12 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
     public class TeamLogic 
     {
         IRepository<Team> rep;
+
+        public TeamLogic(IRepository<Team> rep)
+        {
+            this.rep = rep;
+        }
+
         public void Create(Team item)
         {
             if(item.TeamName == null || item.TeamName == string.Empty)

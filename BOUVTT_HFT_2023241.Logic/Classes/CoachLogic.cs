@@ -13,6 +13,11 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
     {
         IRepository<Coach> rep;
 
+        public CoachLogic(IRepository<Coach> rep)
+        {
+            this.rep = rep;
+        }
+
         public IQueryable<Coach> ReadAll()
         {
             return rep.ReadAll();

@@ -1,5 +1,6 @@
 ﻿using BOUVTT_HFT_2023241.Models;
 using BOUVTT_HFT_2023241.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,11 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
     public class TrainingLogic 
     {
         IRepository<Training> rep;
+
+        public TrainingLogic(IRepository<Training> rep)
+        {
+            this.rep = rep;
+        }
 
         public void Create(Training item)
         {
@@ -40,6 +46,14 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
         public void Update(Training item)
         {
             rep.Update(item);
+        }
+
+        //non crud
+        public IEnumerable<Coach> CoachesEachTraningMonth(int month)
+        {
+            return (rep.ReadAll()
+                .Where(t => t.Time.Month == month)
+                .Select(t => t.Coach));
         }
     }
 }
