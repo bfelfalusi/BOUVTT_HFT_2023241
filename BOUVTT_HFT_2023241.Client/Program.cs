@@ -5,8 +5,10 @@ using BOUVTT_HFT_2023241.Repository.Interfaces;
 using BOUVTT_HFT_2023241.Repository.Repositories;
 
 using System;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Channels;
+using static BOUVTT_HFT_2023241.Logic.Classes.CoachLogic;
 
 namespace BOUVTT_HFT_2023241.Client
 {
@@ -18,16 +20,14 @@ namespace BOUVTT_HFT_2023241.Client
             PlayerDbContext db = new PlayerDbContext();
             var repo = new TrainingRepository(db);
             var logic = new TrainingLogic(repo);
-            int mainap = DateTime.Now.Month;
 
-            Training tr = new Training()
-            {
-                CoachId = 1,
-                PlayerId = 2,
-                TrainingType = ""
-            };
-            //logic.Create(tr);
-
+            var linq = db.Coaches.Select(t =>
+                new
+                {
+                    Count = t.Players.Count(),
+                    SumHeight = t.Players.Sum(x => x.Height)
+                });
+            ;
 
         }
     }

@@ -49,11 +49,11 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
         }
 
         //non crud
-        public IEnumerable<Coach> CoachesEachTraningMonth(int month)
+        public IEnumerable<Player> PlayersEachTraningMonth(int month)
         {
             return (rep.ReadAll()
                 .Where(t => t.Time.Month == month)
-                .Select(t => t.Coach));
+                .Select(t => t.Player));
         }
     }
 }

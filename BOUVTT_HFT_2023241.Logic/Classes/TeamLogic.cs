@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -45,6 +46,16 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
         public void Update(Team item)
         {
             rep.Update(item);
+        }
+
+        //non crud
+
+        public IEnumerable<string> GetTeamsWitJerseyNumber(int jersey)
+        {
+            return rep.ReadAll()
+                .Where(t => t.Players
+                .Any(t => t.JerseyNumber == jersey))
+                .Select(t=>t.TeamName);
         }
     }
 }

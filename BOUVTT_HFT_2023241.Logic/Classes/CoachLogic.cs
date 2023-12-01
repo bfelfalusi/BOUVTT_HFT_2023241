@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BOUVTT_HFT_2023241.Logic.Classes
 {
-    public class CoachLogic 
+    public class CoachLogic
     {
         IRepository<Coach> rep;
 
@@ -30,7 +30,7 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
 
         public void Create(Coach item)
         {
-            if(item.Position == null || item.Position== string.Empty)
+            if (item.Position == null || item.Position == string.Empty)
             {
                 throw new ArgumentException("Coach position is required!");
             }
@@ -46,6 +46,12 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
         {
             rep.Delete(id);
         }
-
+        public IEnumerable<int> AvgHeight(Coach Coach)
+        {
+           return rep.ReadAll()
+                .Where(x=>x.CoachId==Coach.CoachId)
+                .Select(t => t.Players.Sum(x => x.Height)/ t.Players.Count());
+        }
+ 
     }
 }
