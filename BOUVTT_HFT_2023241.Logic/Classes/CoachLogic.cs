@@ -52,6 +52,26 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
                 .Where(x=>x.CoachId==Coach.CoachId)
                 .Select(t => t.Players.Sum(x => x.Height)/ t.Players.Count());
         }
- 
+        
+        public IEnumerable<int> MostFrequentJerseyNumber(Coach coach)
+        {
+            var linq = rep.ReadAll()
+                .Where(c => c.CoachId == coach.CoachId)
+                .Select(c => c.Players).SingleOrDefault();
+
+            List<int> list = new List<int>(100);
+
+            foreach (var player in linq)
+            {
+                list[player.JerseyNumber]++;
+            }
+
+            List<int> returnlist = new List<int>();
+            returnlist.Add(list.IndexOf(list.Max()));
+
+            return returnlist;
+            
+        }
+
     }
 }
