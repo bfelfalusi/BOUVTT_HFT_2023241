@@ -1,4 +1,5 @@
-﻿using BOUVTT_HFT_2023241.Models;
+﻿using BOUVTT_HFT_2023241.Logic.Interfaces;
+using BOUVTT_HFT_2023241.Models;
 using BOUVTT_HFT_2023241.Repository.Interfaces;
 using Castle.Core.Internal;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BOUVTT_HFT_2023241.Logic.Classes
 {
-    public class CoachLogic
+    public class CoachLogic : ICoachLogic
     {
         IRepository<Coach> rep;
 
@@ -51,9 +52,9 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
         //noncruds
         public IEnumerable<double> AvgPlayerHeightPerCoach(string coachPosition)
         {
-           return rep.ReadAll()
-                .Where(c=>c.Position == coachPosition)
-                .Select(t => t.Players.Sum(x => x.Height)/ t.Players.Count());
+            return rep.ReadAll()
+                 .Where(c => c.Position == coachPosition)
+                 .Select(t => t.Players.Sum(x => x.Height) / t.Players.Count());
         }
 
     }

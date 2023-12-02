@@ -1,4 +1,5 @@
-﻿using BOUVTT_HFT_2023241.Models;
+﻿using BOUVTT_HFT_2023241.Logic.Interfaces;
+using BOUVTT_HFT_2023241.Models;
 using BOUVTT_HFT_2023241.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BOUVTT_HFT_2023241.Logic.Classes
 {
-    public class TeamLogic 
+    public class TeamLogic : ITeamLogic
     {
         IRepository<Team> rep;
 
@@ -21,7 +22,7 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
 
         public void Create(Team item)
         {
-            if(item.TeamName == null || item.TeamName == string.Empty)
+            if (item.TeamName == null || item.TeamName == string.Empty)
             {
                 throw new ArgumentException("Team name is required!");
             }

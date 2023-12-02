@@ -1,4 +1,5 @@
-﻿using BOUVTT_HFT_2023241.Models;
+﻿using BOUVTT_HFT_2023241.Logic.Interfaces;
+using BOUVTT_HFT_2023241.Models;
 using BOUVTT_HFT_2023241.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BOUVTT_HFT_2023241.Logic.Classes
 {
-    public class TrainingLogic 
+    public class TrainingLogic : ITrainingLogic
     {
         IRepository<Training> rep;
 
@@ -21,10 +22,10 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
 
         public void Create(Training item)
         {
-            if(item.TrainingType == null || item.TrainingType == string.Empty)
+            if (item.TrainingType == null || item.TrainingType == string.Empty)
             {
                 throw new ArgumentException("Training type is required!");
-            }    
+            }
             rep.Create(item);
         }
 
@@ -54,15 +55,15 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
             return (rep.ReadAll()
                 .Where(t => t.Time.Month == month)
                 .Select(t => t.Player)
-                .Select(p=>p.Team.TeamName));
+                .Select(p => p.Team.TeamName));
         }
 
         public IEnumerable<int> MostFrequentJerseyNumber(string coachPosition)
         {
             var linq = rep.ReadAll()
-                .Where(tr=>tr.Coach.Position==coachPosition)
-                .Select(tr=>tr.Player);
-            
+                .Where(tr => tr.Coach.Position == coachPosition)
+                .Select(tr => tr.Player);
+
             int[] arr = new int[100];
             ;
             foreach (var player in linq)
@@ -70,8 +71,8 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
                 arr[player.JerseyNumber]++;
             }
 
-            List<int> returnlist = new List<int> { Array.IndexOf(arr,arr.Max()) };
-            
+            List<int> returnlist = new List<int> { Array.IndexOf(arr, arr.Max()) };
+
             return returnlist;
 
         }

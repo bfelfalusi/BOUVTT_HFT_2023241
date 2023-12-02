@@ -1,4 +1,5 @@
-﻿using BOUVTT_HFT_2023241.Models;
+﻿using BOUVTT_HFT_2023241.Logic.Interfaces;
+using BOUVTT_HFT_2023241.Models;
 using BOUVTT_HFT_2023241.Repository;
 using BOUVTT_HFT_2023241.Repository.Interfaces;
 using System;
@@ -10,7 +11,7 @@ using System.Transactions;
 
 namespace BOUVTT_HFT_2023241.Logic.Classes
 {
-    public class PlayerLogic
+    public class PlayerLogic : IPlayerLogic
     {
         IRepository<Player> rep;
 
@@ -60,8 +61,8 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
         public IEnumerable<string> GetTrainingTypesByPlayerName(string playername)
         {
             var linq = rep.ReadAll()
-                .Where(p=>p.PlayerName == playername)
-                .Select(p=>p.Trainings).SingleOrDefault();
+                .Where(p => p.PlayerName == playername)
+                .Select(p => p.Trainings).SingleOrDefault();
 
             List<string> returnlist = new List<string>();
 
