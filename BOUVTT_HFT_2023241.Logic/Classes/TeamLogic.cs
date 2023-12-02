@@ -48,14 +48,13 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
             rep.Update(item);
         }
 
-        //non crud
-
+        //noncrud
         public IEnumerable<string> GetTeamsWitJerseyNumber(int jersey)
         {
             return rep.ReadAll()
                 .Where(t => t.Players
                 .Any(t => t.JerseyNumber == jersey))
-                .Select(t=>t.TeamName);
+                .Select(t => t.TeamName);
         }
     }
 }

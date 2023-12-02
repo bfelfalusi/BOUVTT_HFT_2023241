@@ -18,7 +18,7 @@ namespace BOUVTT_HFT_2023241.Models
         [StringLength(50)]
         public string PlayerName { get; set; }
 
-        public int Height { get; set; }
+        public double Height { get; set; }
 
         public int JerseyNumber { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using BOUVTT_HFT_2023241.Models;
 using BOUVTT_HFT_2023241.Repository.Interfaces;
+using Castle.Core.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,31 +47,13 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
         {
             rep.Delete(id);
         }
-        public IEnumerable<int> AvgHeight(Coach Coach)
+
+        //noncruds
+        public IEnumerable<double> AvgPlayerHeightPerCoach(string coachPosition)
         {
            return rep.ReadAll()
-                .Where(x=>x.CoachId==Coach.CoachId)
+                .Where(c=>c.Position == coachPosition)
                 .Select(t => t.Players.Sum(x => x.Height)/ t.Players.Count());
-        }
-        
-        public IEnumerable<int> MostFrequentJerseyNumber(Coach coach)
-        {
-            var linq = rep.ReadAll()
-                .Where(c => c.CoachId == coach.CoachId)
-                .Select(c => c.Players).SingleOrDefault();
-
-            List<int> list = new List<int>(100);
-
-            foreach (var player in linq)
-            {
-                list[player.JerseyNumber]++;
-            }
-
-            List<int> returnlist = new List<int>();
-            returnlist.Add(list.IndexOf(list.Max()));
-
-            return returnlist;
-            
         }
 
     }

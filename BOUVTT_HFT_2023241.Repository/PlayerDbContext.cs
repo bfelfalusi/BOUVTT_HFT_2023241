@@ -153,7 +153,8 @@ namespace BOUVTT_HFT_2023241.Repository
                 new Training("22*Positional Training*2023.01.19*22*5"),
                 new Training("23*Defense Training*2023.10.04*23*1"),
                 new Training("24*Free Throw Training*2023.12.09*24*2"),
-                new Training("25*Free Throw Training*2023.05.08*21*2")
+                new Training("25*Running Training*2023.05.08*15*10"),
+                new Training("26*Floater Training*2023.05.04*10*2")
             });
         }
     }

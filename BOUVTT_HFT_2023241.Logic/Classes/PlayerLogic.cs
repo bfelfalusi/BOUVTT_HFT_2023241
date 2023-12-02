@@ -2,7 +2,11 @@
 using BOUVTT_HFT_2023241.Repository;
 using BOUVTT_HFT_2023241.Repository.Interfaces;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Transactions;
 
 namespace BOUVTT_HFT_2023241.Logic.Classes
 {
@@ -51,5 +55,23 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
         {
             rep.Update(item);
         }
+
+        //noncrud
+        public IEnumerable<string> GetTrainingTypesByPlayerName(string playername)
+        {
+            var linq = rep.ReadAll()
+                .Where(p=>p.PlayerName == playername)
+                .Select(p=>p.Trainings).SingleOrDefault();
+
+            List<string> returnlist = new List<string>();
+
+            foreach (var trainings in linq)
+            {
+                returnlist.Add(trainings.TrainingType);
+            }
+
+            return returnlist;
+        }
+
     }
 }
