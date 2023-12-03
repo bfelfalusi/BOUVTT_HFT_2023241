@@ -7,44 +7,44 @@ namespace BOUVTT_HFT_2023241.Endpoint.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class PlayerController : ControllerBase
+    public class TeamController : ControllerBase
     {
-        PlayerLogic pl;
+        TeamLogic tl;
 
-        public PlayerController(PlayerLogic pl)
+        public TeamController(TeamLogic pl)
         {
-            this.pl = pl;
+            this.tl = pl;
         }
 
-        
+
         [HttpGet]
-        public IEnumerable<Player> ReadAll()
+        public IEnumerable<Team> ReadAll()
         {
-            return pl.ReadAll();
+            return tl.ReadAll();
         }
 
         [HttpGet("{id}")]
-        public Player Read(int id)
+        public Team Read(int id)
         {
-            return pl.Read(id);
+            return tl.Read(id);
         }
 
         [HttpPost]
-        public void Create([FromBody] Player value)
+        public void Create([FromBody] Team value)
         {
-            pl.Create(value);
+            tl.Create(value);
         }
 
         [HttpPut]
-        public void Update([FromBody] Player value)
+        public void Update([FromBody] Team value)
         {
-            pl.Update(value);
+            tl.Update(value);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            pl.Delete(id);
+            tl.Delete(id);
         }
 
     }
