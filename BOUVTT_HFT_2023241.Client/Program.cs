@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Threading.Channels;
-using static BOUVTT_HFT_2023241.Logic.Classes.CoachLogic;
 
 namespace BOUVTT_HFT_2023241.Client
 {
@@ -18,7 +17,7 @@ namespace BOUVTT_HFT_2023241.Client
 
         static void Main(string[] args)
         {
-            
+
         }
     }
 }

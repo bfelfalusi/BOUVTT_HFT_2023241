@@ -62,13 +62,15 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
         {
             var linq = rep.ReadAll()
                 .Where(p => p.PlayerName == playername)
-                .Select(p => p.Trainings).SingleOrDefault();
-
+                .Select(p=>p.Trainings).FirstOrDefault();
+            
             List<string> returnlist = new List<string>();
-
-            foreach (var trainings in linq)
+            if (linq != null) 
             {
-                returnlist.Add(trainings.TrainingType);
+                foreach (var trainings in linq)
+                {
+                    returnlist.Add(trainings.TrainingType);
+                }
             }
 
             return returnlist;

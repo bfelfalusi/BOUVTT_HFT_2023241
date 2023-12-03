@@ -57,11 +57,11 @@ namespace BOUVTT_HFT_2023241.Repository
                 .UsingEntity<Training>
                 (
                     tr => tr.HasOne(tr => tr.Player)
-                        .WithMany()
+                        .WithMany(p=>p.Trainings)
                         .HasForeignKey(tr => tr.PlayerId)
                         .OnDelete(DeleteBehavior.Cascade),
                     tr => tr.HasOne(tr => tr.Coach)
-                        .WithMany()
+                        .WithMany(c=>c.Trainings)
                         .HasForeignKey(tr => tr.CoachId)
                         .OnDelete(DeleteBehavior.Cascade)
                 );
