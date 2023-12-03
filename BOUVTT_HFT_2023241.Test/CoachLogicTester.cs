@@ -68,7 +68,7 @@ namespace BOUVTT_HFT_2023241.Test
         }
 
         [Test]
-        public void CreateCoachWithIncorrectPosition()
+        public void CreateCoachTestWithIncorrectPosition()
         {
             var coach = new Coach() { Position = "" };
             try
@@ -76,10 +76,7 @@ namespace BOUVTT_HFT_2023241.Test
                 //ACT
                 cl.Create(coach);
             }
-            catch
-            {
-
-            }
+            catch { }
 
             //ASSERT
             mockCoachRep.Verify(c => c.Create(coach), Times.Never);

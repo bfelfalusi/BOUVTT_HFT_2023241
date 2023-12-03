@@ -75,10 +75,7 @@ namespace BOUVTT_HFT_2023241.Test
                 //ACT
                 pl.Create(player);
             }
-            catch
-            {
-
-            }
+            catch { }
 
             //ASSERT
             mockPlayerRep.Verify(p => p.Create(player), Times.Never);
