@@ -14,7 +14,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 
 namespace BOUVTT_HFT_2023241.Endpoint
@@ -36,13 +39,13 @@ namespace BOUVTT_HFT_2023241.Endpoint
 
             services.AddTransient<IRepository<Player>, PlayerRepository>();
             services.AddTransient<IRepository<Team>, TeamRepository>();
-            services.AddTransient<IRepository<Coach>, CoachRepository>();
             services.AddTransient<IRepository<Training>, TrainingRepository>();
+            services.AddTransient<IRepository<Coach>, CoachRepository>();
 
             services.AddTransient<IPlayerLogic, PlayerLogic>();
             services.AddTransient<ITeamLogic, TeamLogic>();
-            services.AddTransient<ICoachLogic, CoachLogic>();
             services.AddTransient<ITrainingLogic, TrainingLogic>();
+            services.AddTransient<ICoachLogic, CoachLogic>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

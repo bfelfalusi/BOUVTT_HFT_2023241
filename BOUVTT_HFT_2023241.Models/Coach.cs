@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BOUVTT_HFT_2023241.Models
@@ -21,8 +22,10 @@ namespace BOUVTT_HFT_2023241.Models
         public string Position { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Player> Players  { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Training> Trainings { get; set; }
 
         public Coach()

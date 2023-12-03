@@ -1,51 +1,50 @@
-﻿using BOUVTT_HFT_2023241.Logic.Classes;
+﻿using BOUVTT_HFT_2023241.Logic.Interfaces;
 using BOUVTT_HFT_2023241.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace BOUVTT_HFT_2023241.Endpoint.Controllers
+namespace MovieDbApp.Endpoint.Controllers
 {
     [Route("[controller]")]
     [ApiController]
     public class TeamController : ControllerBase
     {
-        TeamLogic tl;
 
-        public TeamController(TeamLogic tl)
+        ITeamLogic tl;
+
+        public TeamController(ITeamLogic tl)
         {
             this.tl = tl;
         }
 
-
         [HttpGet]
         public IEnumerable<Team> ReadAll()
         {
-            return tl.ReadAll();
+            return this.tl.ReadAll();
         }
 
         [HttpGet("{id}")]
         public Team Read(int id)
         {
-            return tl.Read(id);
+            return this.tl.Read(id);
         }
 
         [HttpPost]
         public void Create([FromBody] Team value)
         {
-            tl.Create(value);
+            this.tl.Create(value);
         }
 
         [HttpPut]
         public void Update([FromBody] Team value)
         {
-            tl.Update(value);
+            this.tl.Update(value);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            tl.Delete(id);
+            this.tl.Delete(id);
         }
-
     }
 }

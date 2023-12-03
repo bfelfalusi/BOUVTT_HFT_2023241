@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BOUVTT_HFT_2023241.Models
@@ -28,6 +29,7 @@ namespace BOUVTT_HFT_2023241.Models
         [NotMapped]
         public virtual ICollection<Training> Trainings { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Coach> Coaches { get; set; }
 
         public Player()
