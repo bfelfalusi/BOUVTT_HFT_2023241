@@ -8,7 +8,7 @@ namespace BOUVTT_HFT_2023241.Logic.Interfaces
     {
         void Create(Training item);
         void Delete(int id);
-        IEnumerable<string> GetPlayersByTrainingMonth(int month);
+        IEnumerable<string> GetTeamsByTrainingMonth(int month);
         IEnumerable<int> MostFrequentJerseyNumber(string coachPosition);
         Training Read(int id);
         IQueryable<Training> ReadAll();

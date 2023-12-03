@@ -42,9 +42,7 @@ namespace BOUVTT_HFT_2023241.Test
                         {
                             TrainingType =  "Floater Training"
                         }
-
                     }
-
                 }
             }.AsQueryable());
 

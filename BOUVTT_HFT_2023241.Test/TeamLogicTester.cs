@@ -25,7 +25,7 @@ namespace BOUVTT_HFT_2023241.Test
         {
 
             mockTeamRep = new Mock<IRepository<Team>>();
-            mockTeamRep.Setup(p => p.ReadAll()).Returns(new List<Team>()
+            mockTeamRep.Setup(t => t.ReadAll()).Returns(new List<Team>()
             {
                 new Team()
                 {

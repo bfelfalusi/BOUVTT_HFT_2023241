@@ -25,7 +25,7 @@ namespace BOUVTT_HFT_2023241.Test
         {
 
             mockCoachRep = new Mock<IRepository<Coach>>();
-            mockCoachRep.Setup(p => p.ReadAll()).Returns(new List<Coach>()
+            mockCoachRep.Setup(c => c.ReadAll()).Returns(new List<Coach>()
             {
                 new Coach()
                 {

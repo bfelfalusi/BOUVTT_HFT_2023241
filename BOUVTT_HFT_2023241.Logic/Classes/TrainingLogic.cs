@@ -50,7 +50,7 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
         }
 
         //noncrud
-        public IEnumerable<string> GetPlayersByTrainingMonth(int month)
+        public IEnumerable<string> GetTeamsByTrainingMonth(int month)
         {
             return (rep.ReadAll()
                 .Where(t => t.Time.Month == month)
