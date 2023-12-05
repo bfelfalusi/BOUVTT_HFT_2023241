@@ -1,8 +1,4 @@
-﻿using BOUVTT_HFT_2023241.Logic.Classes;
-using BOUVTT_HFT_2023241.Models;
-using BOUVTT_HFT_2023241.Repository;
-using BOUVTT_HFT_2023241.Repository.Interfaces;
-using BOUVTT_HFT_2023241.Repository.Repositories;
+﻿using BOUVTT_HFT_2023241.Models;
 using ConsoleTools;
 using System;
 using System.Collections.Generic;
