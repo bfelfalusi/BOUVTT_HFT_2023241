@@ -22,13 +22,13 @@ namespace BOUVTT_HFT_2023241.Client
                 double height = double.Parse(Console.ReadLine());
                 Console.Write("\nEnter player's jerseynumber: ");
                 int jerseynum = int.Parse(Console.ReadLine());
-                restservice.Post(new Player()
-                {
-                    PlayerName = name,
+                restservice.Post(new Player() 
+                { 
+                    PlayerName = name, 
                     Height = height,
                     JerseyNumber = jerseynum
 
-                },
+                }, 
                     "player");
             }
             else if (entity == "Team")
@@ -85,7 +85,7 @@ namespace BOUVTT_HFT_2023241.Client
                 List<Coach> coaches = restservice.Get<Coach>("coach");
                 foreach (var item in coaches)
                 {
-                    Console.WriteLine(item.CoachId + ": " + item.Position);
+                    Console.WriteLine(item.CoachId+ ": " + item.Position);
                 }
             }
             else if (entity == "Training")
@@ -127,7 +127,7 @@ namespace BOUVTT_HFT_2023241.Client
                 Coach coach = restservice.Get<Coach>(id, "coach");
                 Console.Write($"New position [old was: {coach.Position}]: ");
                 string pos = Console.ReadLine();
-                coach.Position = pos;
+                coach.Position= pos;
                 restservice.Put(coach, "coach");
             }
             else if (entity == "Training")
@@ -137,7 +137,7 @@ namespace BOUVTT_HFT_2023241.Client
                 Training training = restservice.Get<Training>(id, "training");
                 Console.Write($"New trainingtype [old was: {training.TrainingType}]: ");
                 string type = Console.ReadLine();
-                training.TrainingType = type;
+                training.TrainingType= type;
                 restservice.Put(training, "training");
             }
         }
@@ -211,6 +211,6 @@ namespace BOUVTT_HFT_2023241.Client
             menu.Show();
         }
 
-
+        
     }
 }
