@@ -19,9 +19,9 @@ namespace BOUVTT_HFT_2023241.Client
             {
                 Console.Write("Enter player's name: ");
                 string name = Console.ReadLine();
-                Console.Write("\nEnter player's height: ");
+                Console.Write("Enter player's height: ");
                 double height = double.Parse(Console.ReadLine());
-                Console.Write("\nEnter player's jerseynumber: ");
+                Console.Write("Enter player's jerseynumber: ");
                 int jerseynum = int.Parse(Console.ReadLine());
                 restservice.Post(new Player() 
                 { 
@@ -62,7 +62,7 @@ namespace BOUVTT_HFT_2023241.Client
                 },
                     "training");
             }
-            Console.WriteLine($"{entity} created!");
+            Console.WriteLine($"\n{entity} created");
             Console.WriteLine("\n--press enter to continue--");
             Console.ReadLine();
         }
@@ -151,7 +151,7 @@ namespace BOUVTT_HFT_2023241.Client
                 training.TrainingType= type;
                 restservice.Put(training, "training");
             }
-            Console.WriteLine($"{entity} updated");
+            Console.WriteLine($"\n{entity} updated");
             Console.WriteLine("\n--press enter to continue--");
             Console.ReadLine();
         }
@@ -181,7 +181,7 @@ namespace BOUVTT_HFT_2023241.Client
                 int id = int.Parse(Console.ReadLine());
                 restservice.Delete(id, "training");
             }
-            Console.WriteLine($"{entity} deleted");
+            Console.WriteLine($"\n{entity} deleted");
             Console.WriteLine("\n--press enter to continue--");
             Console.ReadLine();
         }
