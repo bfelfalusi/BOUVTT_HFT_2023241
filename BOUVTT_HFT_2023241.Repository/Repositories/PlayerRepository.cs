@@ -24,7 +24,10 @@ namespace BOUVTT_HFT_2023241.Repository.Repositories
             var old = Read(item.PlayerId);
             foreach (var p in old.GetType().GetProperties())
             {
-                p.SetValue(old, p.GetValue(item));
+                if (p.GetAccessors().FirstOrDefault(c => c.IsVirtual) == null)
+                {
+                    p.SetValue(old, p.GetValue(item));
+                }
             }
             db.SaveChanges();
         }
