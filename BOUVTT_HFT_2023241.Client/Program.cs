@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Numerics;
+using System.Text;
 using System.Threading.Channels;
 
 namespace BOUVTT_HFT_2023241.Client
@@ -61,6 +62,9 @@ namespace BOUVTT_HFT_2023241.Client
                 },
                     "training");
             }
+            Console.WriteLine($"{entity} created!");
+            Console.WriteLine("\n--press enter to continue--");
+            Console.ReadLine();
         }
         static void List(string entity)
         {
@@ -96,6 +100,7 @@ namespace BOUVTT_HFT_2023241.Client
                     Console.WriteLine(item.TrainingId + ": " + item.TrainingType);
                 }
             }
+            Console.WriteLine("\n--press enter to continue--");
             Console.ReadLine();
         }
         static void Update(string entity)
@@ -146,6 +151,9 @@ namespace BOUVTT_HFT_2023241.Client
                 training.TrainingType= type;
                 restservice.Put(training, "training");
             }
+            Console.WriteLine($"{entity} updated");
+            Console.WriteLine("\n--press enter to continue--");
+            Console.ReadLine();
         }
         static void Delete(string entity)
         {
@@ -173,6 +181,9 @@ namespace BOUVTT_HFT_2023241.Client
                 int id = int.Parse(Console.ReadLine());
                 restservice.Delete(id, "training");
             }
+            Console.WriteLine($"{entity} deleted");
+            Console.WriteLine("\n--press enter to continue--");
+            Console.ReadLine();
         }
 
         //noncruds
@@ -185,7 +196,7 @@ namespace BOUVTT_HFT_2023241.Client
             {
                 Console.WriteLine(item.ToString());
             }
-            Console.WriteLine("\npress enter to continue");
+            Console.WriteLine("\n--press enter to continue--");
             Console.ReadLine();
             
         }
@@ -198,7 +209,7 @@ namespace BOUVTT_HFT_2023241.Client
             {
                 Console.WriteLine(item);
             }
-            Console.WriteLine("\npress enter to continue");
+            Console.WriteLine("\n--press enter to continue--");
             Console.ReadLine();   
         }
         static void GetTeamsWitJerseyNumber()
@@ -210,7 +221,7 @@ namespace BOUVTT_HFT_2023241.Client
             {
                 Console.WriteLine(item);
             }
-            Console.WriteLine("\npress enter to continue");
+            Console.WriteLine("\n--press enter to continue--");
             Console.ReadLine();
         }
         static void GetTrainingTypesByPlayerName()
@@ -222,7 +233,7 @@ namespace BOUVTT_HFT_2023241.Client
             {
                 Console.WriteLine(item);
             }
-            Console.WriteLine("\npress enter to continue");
+            Console.WriteLine("\n--press enter to continue--");
             Console.ReadLine();
         }
         static void AvgPlayerHeightPerCoach()
@@ -234,7 +245,7 @@ namespace BOUVTT_HFT_2023241.Client
             {
                 Console.WriteLine(Math.Round(item,2));
             }
-            Console.WriteLine("\npress enter to continue");
+            Console.WriteLine("\n--press enter to continue--");
             Console.ReadLine();
         }
 
