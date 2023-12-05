@@ -32,9 +32,9 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
 
         public void Create(Coach item)
         {
-            if (item.Position == null || item.Position == string.Empty)
+            if (item.Position.Length < 3)
             {
-                throw new ArgumentException("Coach position is required!");
+                throw new ArgumentException("Coach position is too short!");
             }
             rep.Create(item);
         }

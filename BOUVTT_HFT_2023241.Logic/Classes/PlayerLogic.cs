@@ -26,9 +26,9 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
             {
                 throw new ArgumentException("Jerseynumber can be between 0 and 100!");
             }
-            else if (player.PlayerName == string.Empty || player.PlayerName == null)
+            else if (player.PlayerName.Length <4 )
             {
-                throw new ArgumentException("Name is required!");
+                throw new ArgumentException("Playername is too short!");
             }
             else if (player.Height <= 0)
             {

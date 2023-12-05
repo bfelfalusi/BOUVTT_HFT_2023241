@@ -22,9 +22,9 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
 
         public void Create(Training item)
         {
-            if (item.TrainingType == null || item.TrainingType == string.Empty)
+            if (item.TrainingType.Length<3)
             {
-                throw new ArgumentException("Training type is required!");
+                throw new ArgumentException("Training type is too short!");
             }
             rep.Create(item);
         }

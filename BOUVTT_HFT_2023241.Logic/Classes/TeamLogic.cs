@@ -22,9 +22,9 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
 
         public void Create(Team item)
         {
-            if (item.TeamName == null || item.TeamName == string.Empty)
+            if (item.TeamName.Length < 3)
             {
-                throw new ArgumentException("Team name is required!");
+                throw new ArgumentException("Team name is too short!");
             }
             rep.Create(item);
         }
