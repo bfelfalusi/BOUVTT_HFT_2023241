@@ -175,15 +175,82 @@ namespace BOUVTT_HFT_2023241.Client
             }
         }
 
+        //noncruds
+        static void MostFrequentJerseyNumber()
+        {
+            Console.WriteLine("Enter the coach's position: ");
+            string pos = Console.ReadLine();
+            List <int> jersey = restservice.Get<int>(pos, "noncrud/MostFrequentJerseyNumber");
+            foreach (var item in jersey)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("\npress enter to continue");
+            Console.ReadLine();
+            
+        }
+        static void GetTeamsByTrainingMonth()
+        {   
+            Console.WriteLine("Enter the training's month (number, i.e: 05): ");
+            int month = int.Parse(Console.ReadLine());
+            List<string> teamnames = restservice.Get<string>(month.ToString(), "noncrud/GetTeamsByTrainingMonth");
+            foreach (var item in teamnames)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("\npress enter to continue");
+            Console.ReadLine();   
+        }
+        static void GetTeamsWitJerseyNumber()
+        {
+            Console.WriteLine("Enter the jerseynumber: ");
+            int jersey = int.Parse(Console.ReadLine());
+            List<string> teamnames = restservice.Get<string>(jersey.ToString(), "noncrud/GetTeamsWitJerseyNumber");
+            foreach (var item in teamnames)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("\npress enter to continue");
+            Console.ReadLine();
+        }
+        static void GetTrainingTypesByPlayerName()
+        {
+            Console.WriteLine("Enter the player's name: ");
+            string name = Console.ReadLine();
+            List<string> trainings = restservice.Get<string>(name, "noncrud/GetTrainingTypesByPlayerName");
+            foreach (var item in trainings)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("\npress enter to continue");
+            Console.ReadLine();
+        }
+        static void AvgPlayerHeightPerCoach()
+        {
+            Console.WriteLine("Enter the coach's position: ");
+            string pos = Console.ReadLine();
+            List<double> heights = restservice.Get<double>(pos, "noncrud/AvgPlayerHeightPerCoach");
+            foreach (var item in heights)
+            {
+                Console.WriteLine(Math.Round(item,2));
+            }
+            Console.WriteLine("\npress enter to continue");
+            Console.ReadLine();
+        }
+
+
+
         static void Main(string[] args)
         {
             restservice = new RestService("http://localhost:43388/","player");
 
+            //table menus:
             var playerSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Player"))
                 .Add("Create", () => Create("Player"))
                 .Add("Delete", () => Delete("Player"))
                 .Add("Update", () => Update("Player"))
+                .Add("GetTrainingTypesByPlayerName", () => GetTrainingTypesByPlayerName())
                 .Add("Exit", ConsoleMenu.Close);
 
             var teamSubMenu = new ConsoleMenu(args, level: 1)
@@ -191,6 +258,7 @@ namespace BOUVTT_HFT_2023241.Client
                 .Add("Create", () => Create("Team"))
                 .Add("Delete", () => Delete("Team"))
                 .Add("Update", () => Update("Team"))
+                .Add("GetTeamsWitJerseyNumber", () => GetTeamsWitJerseyNumber())
                 .Add("Exit", ConsoleMenu.Close);
 
             var coachSubMenu = new ConsoleMenu(args, level: 1)
@@ -198,6 +266,7 @@ namespace BOUVTT_HFT_2023241.Client
                 .Add("Create", () => Create("Coach"))
                 .Add("Delete", () => Delete("Coach"))
                 .Add("Update", () => Update("Coach"))
+                .Add("AvgPlayerHeightPerCoach", () => AvgPlayerHeightPerCoach())
                 .Add("Exit", ConsoleMenu.Close);
 
             var trainingSubMenu = new ConsoleMenu(args, level: 1)
@@ -205,8 +274,11 @@ namespace BOUVTT_HFT_2023241.Client
                 .Add("Create", () => Create("Training"))
                 .Add("Delete", () => Delete("Training"))
                 .Add("Update", () => Update("Training"))
+                .Add("MostFrequentJerseyNumber", () => MostFrequentJerseyNumber())
+                .Add("GetTeamsByTrainingMonth", ()=> GetTeamsByTrainingMonth())
                 .Add("Exit", ConsoleMenu.Close);
 
+            //main menu:
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Players", () => playerSubMenu.Show())
                 .Add("Teams", () => teamSubMenu.Show())

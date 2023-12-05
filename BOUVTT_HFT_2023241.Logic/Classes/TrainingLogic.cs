@@ -55,7 +55,7 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
             return (rep.ReadAll()
                 .Where(t => t.Time.Month == month)
                 .Select(t => t.Player)
-                .Select(p => p.Team.TeamName));
+                .Select(p => p.Team.TeamName).Distinct());
         }
 
         public IEnumerable<int> MostFrequentJerseyNumber(string coachPosition)
