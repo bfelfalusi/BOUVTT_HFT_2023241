@@ -107,7 +107,13 @@ namespace BOUVTT_HFT_2023241.Client
                 Player player = restservice.Get<Player>(id, "player");
                 Console.Write($"New name [old was: {player.PlayerName}]: ");
                 string name = Console.ReadLine();
+                Console.Write($"New height [old was: {player.Height}]: ");
+                double height = double.Parse(Console.ReadLine());
+                Console.Write($"New jerseynumber [old was: {player.JerseyNumber}]: ");
+                int jersey = int.Parse(Console.ReadLine());
                 player.PlayerName = name;
+                player.Height = height;
+                player.JerseyNumber = jersey;
                 restservice.Put(player, "player");
             }
             else if (entity == "Team")
@@ -171,7 +177,7 @@ namespace BOUVTT_HFT_2023241.Client
 
         static void Main(string[] args)
         {
-            restservice = new RestService("http://localhost:43388/", "player");
+            restservice = new RestService("http://localhost:43388/","player");
 
             var playerSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Player"))
