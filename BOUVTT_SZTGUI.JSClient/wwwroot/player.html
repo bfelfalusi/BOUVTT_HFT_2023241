@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SZTGUI UI/Player</title>
+    <link rel="stylesheet" href="entityStyle.css" />
+</head>
+<body>
+    <h1>
+        Player Catalog
+    </h1>
+    <div id="formdiv">
+        <label>Player Name</label>
+        <input type="text" id="playername" />
+        <label>Player Height</label>
+        <input type="number" id="playerheight" />
+        <label>Jersey Number</label>
+        <input type="number" id="jerseynum" />
+        <button type="button" id="createButton" onclick="create()">+Add Player</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Update Player</label>
+        <input type="text" id="playernametoupdate" />
+        <label>Update Height</label>
+        <input type="number" id="playerheighttoupdate" />
+        <label>Update Jersey</label>
+        <input type="number" id="jerseynumtoupdate" />
+        <button type="button" id="updateButton" onclick="update()">Update Player</button>
+    </div>
+
+    <button onclick="goBackToMain()" id="backButton">GO BACK</button>
+
+    <table class="center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Height</th>
+                <th>Jersey Number</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="playerScript.js"></script>
+</body>
+</html>

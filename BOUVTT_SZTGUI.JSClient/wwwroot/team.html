@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SZTGUI UI/Team</title>
+    <link rel="stylesheet" href="entityStyle.css" />
+</head>
+<body>
+    <h1>
+        Team Catalog
+    </h1>
+    <div id="formdiv">
+        <label>Team Name</label>
+        <input type="text" id="teamname" />
+        <button type="button" id="createButton" onclick="create()">+Add Team</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Update Team</label>
+        <input type="text" id="teamnametoupdate" />
+        <button type="button" id="updateButton" onclick="update()">Update Team</button>
+    </div>
+
+    <button onclick="goBackToMain()" id="backButton">GO BACK</button>
+
+    <table class="center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Team Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="teamScript.js"></script>
+</body>
+</html>

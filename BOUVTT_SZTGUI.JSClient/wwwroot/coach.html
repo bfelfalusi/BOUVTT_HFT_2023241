@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SZTGUI UI/Coach</title>
+    <link rel="stylesheet" href="entityStyle.css" />
+</head>
+<body>
+    <h1>
+        Coach Catalog
+    </h1>
+    <div id="formdiv">
+        <label>Coach Position</label>
+        <input type="text" id="coachposition" />
+        <button type="button" id="createButton" onclick="create()">+Add Coach</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Update Coach</label>
+        <input type="text" id="coachpositiontoupdate" />
+        <button type="button" id="updateButton" onclick="update()">Update Coach</button>
+    </div>
+
+    <button onclick="goBackToMain()" id="backButton">GO BACK</button>
+
+    <table class="center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Position</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="coachScript.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+﻿table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+#div h1, input, label {
+    text-align: center;
+    align-self: center;
+    width: 250px;
+}
+
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    background-color: lightcyan;
+}
+
+#formdiv {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+    #formdiv label, button, input {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    #formdiv label {
+        font-weight: bolder;
+    }
+
+#updateformdiv {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    #updateformdiv label, button, input {
+        margin: 10px;
+        padding: 5px;
+    }
+
+    #updateformdiv label {
+        font-weight: bolder;
+    }
+
+#deleteButton {
+    background-color: lightcoral;
+}
+
+    #deleteButton:hover {
+        background-color: red;
+        color: white;
+    }
+
+#createButton {
+    background-color: lightgreen;
+    width: 120px;
+    align-self: center;
+}
+
+    #createButton:hover {
+        background-color: greenyellow;
+    }
+
+#updateButton {
+    background-color: lightseagreen;
+    width: 120px;
+    align-self: center;
+}
+
+    #updateButton:hover {
+        background-color: lightskyblue;
+    }
+
+#resultarea {
+    align-content: center;
+    align-self: center;
+}
+
+#backButton{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    width: 150px;
+    height: 100px;
+    font-size: 30px;
+}
+
+#backButton:hover{
+    background-color:dimgrey;
+}

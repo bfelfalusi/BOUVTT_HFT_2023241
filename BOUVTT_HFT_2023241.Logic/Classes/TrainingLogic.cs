@@ -65,7 +65,7 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
                 .Select(tr => tr.Player);
 
             int[] arr = new int[100];
-            ;
+            
             foreach (var player in linq)
             {
                 arr[player.JerseyNumber]++;

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SZTGUI UI/Training</title>
+    <link rel="stylesheet" href="entityStyle.css" />
+</head>
+<body>
+    <h1>
+        Training Catalog
+    </h1>
+    <div id="formdiv">
+        <label>Training Type</label>
+        <input type="text" id="trainingtype" />
+        <label>Training Date</label>
+        <input type="datetime-local" id="trainingdate" />
+        <label>Player ID</label>
+        <input type="number" id="playerid" />
+        <button type="button" id="createButton" onclick="create()">+Add Training</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Update Training</label>
+        <input type="text" id="trainingtypetoupdate" />
+        <label>Update Date</label>
+        <input type="datetime-local" id="trainingdatetoupdate" />
+        <label>Update Player ID</label>
+        <input type="number" id="playeridtoupdate" />
+        <button type="button" id="updateButton" onclick="update()">Update Training</button>
+    </div>
+
+    <button onclick="goBackToMain()" id="backButton">GO BACK</button>
+
+    <table class="center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>PlayerID</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="trainingScript.js"></script>
+</body>
+</html>

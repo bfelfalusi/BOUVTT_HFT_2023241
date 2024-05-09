@@ -49,7 +49,7 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
             rep.Delete(id);
         }
 
-        //noncruds
+        //noncrud
         public IEnumerable<double> AvgPlayerHeightPerCoach(string coachPosition)
         {
             return rep.ReadAll()

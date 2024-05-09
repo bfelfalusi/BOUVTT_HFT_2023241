@@ -1,0 +1,113 @@
+﻿<Window x:Class="BOUVTT_SZTGUI.WpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOUVTT_SZTGUI.WpfClient"
+        mc:Ignorable="d"
+        Title="Editor" Height="600" Width="900">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <TabControl>
+            <TabItem Header="Players">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}" FontWeight="SemiBold">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding PlayerName}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Column="1">
+                        <Label Content="Player Name" FontWeight="Bold" Background="LightCoral" Padding="10"/>
+                        <TextBox Text="{Binding SelectedPlayer.PlayerName}" Padding="10" Margin="0,0,0,5"/>
+                        <Label Content="Height" Background="LightCoral" FontWeight="Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedPlayer.Height}" Padding="10" Margin="0,0,0,5"/> 
+                        <Label Content="Jersey Number" Background="LightCoral" FontWeight="Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedPlayer.JerseyNumber}" Padding="10" Margin="0,0,0,15"/>
+                        <Button Content="Create Player" Command="{Binding CreatePlayerCommand}" Margin="8" Padding="10"/>
+                        <Button Content="Delete Player" Command="{Binding DeletePlayerCommand}" Margin="8" Padding="10"/>
+                        <Button Content="Update Player" Command="{Binding UpdatePlayerCommand}" Margin="8" Padding="10"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Coaches">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox ItemsSource="{Binding Coaches}" SelectedItem="{Binding SelectedCoach}" Grid.Column="0" FontWeight="SemiBold">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Position}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Column="1">
+                        <Label Content="Coach Position" Background="LightCyan" FontWeight="Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedCoach.Position}" Padding="10" Margin="0,0,0,5"/>
+                        <Button Content="Create Coach" Command="{Binding CreateCoachCommand}" Margin="8" Padding="10"/>
+                        <Button Content="Delete Coach" Command="{Binding DeleteCoachCommand}" Margin="8" Padding="10"/>
+                        <Button Content="Update Coach" Command="{Binding UpdateCoachCommand}" Margin="8" Padding="10"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Teams">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox ItemsSource="{Binding Teams}" SelectedItem="{Binding SelectedTeam}" Grid.Column="0" FontWeight="SemiBold">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding TeamName}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Column="1">
+                        <Label Content="Team Name" FontWeight="Bold" Background="LightGreen" Padding="10"/>
+                        <TextBox Text="{Binding SelectedTeam.TeamName}" Padding="10" Margin="0,0,0,5"/>
+                        <Button Content="Create Team" Command="{Binding CreateTeamCommand}" Margin="8" Padding="10"/>
+                        <Button Content="Delete Team" Command="{Binding DeleteTeamCommand}" Margin="8" Padding="10"/>
+                        <Button Content="Update Team" Command="{Binding UpdateTeamCommand}" Margin="8" Padding="10"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Trainings">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox ItemsSource="{Binding Trainings}" SelectedItem="{Binding SelectedTraining}" Grid.Column="0" FontWeight="SemiBold">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding TrainingType}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Column="1">
+                        <Label Content="Training Type" Background="LightGoldenrodYellow" FontWeight="Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedTraining.TrainingType}" Padding="10" Margin="0,0,0,5"/>
+                        <Label Content="Training Date" Background="LightGoldenrodYellow" FontWeight="Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedTraining.Time}" Padding="10" Margin="0,0,0,5"/>
+                        <Label Content="PlayerID" Background="LightGoldenrodYellow" FontWeight="Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedTraining.PlayerId}" Padding="10" Margin="0,0,0,5"/>
+                        <Button Content="Create Training" Command="{Binding CreateTrainingCommand}" Margin="8" Padding="10"/>
+                        <Button Content="Delete Training" Command="{Binding DeleteTrainingCommand}" Margin="8" Padding="10"/>
+                        <Button Content="Update Training" Command="{Binding UpdateTrainingCommand}" Margin="8" Padding="10"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

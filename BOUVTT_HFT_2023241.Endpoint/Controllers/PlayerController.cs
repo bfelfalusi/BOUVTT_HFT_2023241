@@ -1,6 +1,9 @@
-﻿using BOUVTT_HFT_2023241.Logic.Interfaces;
+﻿using BOUVTT_HFT_2023241.Endpoint.Services;
+using BOUVTT_HFT_2023241.Logic.Interfaces;
 using BOUVTT_HFT_2023241.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
 namespace MovieDbApp.Endpoint.Controllers
@@ -11,10 +14,12 @@ namespace MovieDbApp.Endpoint.Controllers
     {
 
         IPlayerLogic pl;
+        private readonly IHubContext<SignalRHub> hub;
 
-        public PlayerController(IPlayerLogic pl)
+        public PlayerController(IPlayerLogic pl, IHubContext<SignalRHub> hub)
         {
             this.pl = pl;
+            this.hub = hub;
         }
 
         [HttpGet]
@@ -33,18 +38,22 @@ namespace MovieDbApp.Endpoint.Controllers
         public void Create([FromBody] Player value)
         {
             this.pl.Create(value);
+            this.hub.Clients.All.SendAsync("PlayerCreated", value);
         }
 
         [HttpPut]
         public void Update([FromBody] Player value)
         {
             this.pl.Update(value);
+            this.hub.Clients.All.SendAsync("PlayerUpdated", value);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var playerToDelete = this.pl.Read(id);
             this.pl.Delete(id);
+            this.hub.Clients.All.SendAsync("PlayerDeleted", playerToDelete);
         }
     }
 }

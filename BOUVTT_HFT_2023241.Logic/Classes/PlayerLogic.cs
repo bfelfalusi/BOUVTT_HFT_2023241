@@ -30,7 +30,7 @@ namespace BOUVTT_HFT_2023241.Logic.Classes
             {
                 throw new ArgumentException("Playername is too short!");
             }
-            else if (player.Height <= 0)
+            else if (player.Height < 0)
             {
                 throw new ArgumentException("Height must be a positive number!");
             }

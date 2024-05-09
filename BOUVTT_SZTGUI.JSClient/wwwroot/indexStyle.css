@@ -1,0 +1,54 @@
+﻿h1{
+    text-align:center;
+    font-size: 50px;
+}
+
+#rectangle{
+    width: 500px;
+    height: 500px;
+    background-color: yellow;
+    margin-left:auto;
+    margin-right:auto;
+    align-content:center;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+button{
+    width:125px;
+    height:125px;
+    margin:60px;
+    border-radius:10px;
+}
+
+#playerButton{
+    background-color: lightcoral;
+}
+
+#playerButton:hover {
+    background-color: orangered;
+}
+
+#coachButton{
+    background-color:lightcyan;
+}
+
+#coachButton:hover {
+    background-color: cyan;
+}
+
+#teamButton {
+    background-color:lightgreen;
+}
+
+#teamButton:hover {
+    background-color: mediumseagreen;
+}
+
+#trainingButton {
+    background-color:lightseagreen;
+}
+
+#trainingButton:hover {
+    background-color: deepskyblue;
+}

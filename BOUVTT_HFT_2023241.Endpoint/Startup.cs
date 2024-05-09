@@ -1,3 +1,4 @@
+using BOUVTT_HFT_2023241.Endpoint.Services;
 using BOUVTT_HFT_2023241.Logic.Classes;
 using BOUVTT_HFT_2023241.Logic.Interfaces;
 using BOUVTT_HFT_2023241.Models;
@@ -49,6 +50,8 @@ namespace BOUVTT_HFT_2023241.Endpoint
             services.AddTransient<ITrainingLogic, TrainingLogic>();
             services.AddTransient<ICoachLogic, CoachLogic>();
 
+            services.AddSignalR();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -75,7 +78,11 @@ namespace BOUVTT_HFT_2023241.Endpoint
                 await context.Response.WriteAsJsonAsync(response);
             }));
 
-
+            app.UseCors(x => x
+                .AllowCredentials()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:54705"));
 
             app.UseRouting();
 
@@ -84,6 +91,7 @@ namespace BOUVTT_HFT_2023241.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }
